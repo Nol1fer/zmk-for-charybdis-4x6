@@ -1,6 +1,7 @@
 #include <behaviors.dtsi>
 #include <dt-bindings/zmk/bt.h>
 #include <dt-bindings/zmk/keys.h>
+#include <dt-bindings/zmk/outputs.h>
 #include <dt-bindings/zmk/pointing.h>
 #include <dt-bindings/zmk/rgb.h>
 
@@ -31,9 +32,23 @@
             label = "To2_macro";
             #binding-cells = <0>;
             bindings =
-                <&to 2>,
+                <&to 4>,
                 <&macro_wait_time 30>,
                 <&rgb_ug RGB_COLOR_HSB(250,100,50)>;
+        };
+    };
+
+    behaviors {
+        tpmt: tpmt {
+            compatible = "zmk,behavior-hold-tap";
+            label = "TPMT";
+            bindings = <&kp>, <&kp>;
+
+            #binding-cells = <2>;
+            tapping-term-ms = <200>;
+            require-prior-idle-ms = <150>;
+            flavor = "tap-preferred";
+            quick-tap-ms = <125>;
         };
     };
 
@@ -42,34 +57,23 @@
 
         QWERTY {
             bindings = <
-&kp ESC         &kp N1  &kp N2   &kp N3            &kp N4        &kp N5          &kp N6      &kp N7     &kp N8     &kp N9   &kp N0    &kp BACKSPACE
-&kp TAB         &kp Q   &kp W    &kp E             &kp R         &kp T           &kp Y       &kp U      &kp I      &kp O    &kp P     &kp BSLH
-&kp CAPSLOCK    &kp A   &lt 4 S  &kp D             &lt 3 F       &kp G           &kp H       &kp J      &kp K      &kp L    &kp SEMI  &kp SQT
-&kp LEFT_SHIFT  &kp Z   &kp X    &kp C             &kp V         &lt 2 B         &kp N       &kp M      &kp COMMA  &kp DOT  &kp FSLH  &kp RIGHT_SHIFT
-                                 &kp LEFT_CONTROL  &kp SPACE     &mo 1           &kp DELETE  &kp SPACE
-                                                   &kp LEFT_WIN  &kp LEFT_ALT    &kp ENTER
+&kp ESC         &kp N1         &kp N2            &kp N3            &kp N4          &kp N5          &kp N6      &kp N7          &kp N8        &kp N9        &kp N0            &kp BACKSPACE
+&kp TAB         &kp Q          &kp W             &kp E             &kp R           &kp T           &kp Y       &kp U           &kp I         &kp O         &kp P             &kp BSLH
+&kp BACKSPACE   &tpmt LCTRL A  &tpmt LEFT_ALT S  &tpmt LWIN D      &tpmt LSHIFT F  &kp G           &kp H       &tpmt RSHIFT J  &tpmt RGUI K  &tpmt RALT L  &tpmt RCTRL SEMI  &kp SQT
+&kp LEFT_SHIFT  &kp Z          &kp X             &kp C             &kp V           &lt 4 B         &kp N       &kp M           &kp COMMA     &kp DOT       &kp FSLH          &kp RIGHT_SHIFT
+                                                 &kp LEFT_CONTROL  &kp SPACE       &mo 1           &kp DELETE  &kp SPACE
+                                                                   &kp LEFT_WIN    &kp LEFT_ALT    &kp ENTER
             >;
         };
 
         F_layers {
             bindings = <
-&kp F1  &kp F2  &kp F3  &kp F4  &kp F5  &kp F6        &kp F7     &kp F8     &kp F9    &kp F10       &kp F11    &kp F12
-&trans  &none   &none   &none   &none   &trans        &none      &none      &none     &kp UP_ARROW  &kp MINUS  &kp EQUAL
-&trans  &none   &none   &none   &none   &trans        &mkp LCLK  &mkp RCLK  &kp LEFT  &kp DOWN      &kp RIGHT  &trans
-&trans  &trans  &trans  &trans  &trans  &none         &none      &none      &trans    &trans        &none      &trans
-                        &trans  &trans  &To0_macro    &mkp LCLK  &mkp RCLK
-                                &trans  &trans        &trans
-            >;
-        };
-
-        BT_layers {
-            bindings = <
-&trans  &bt BT_SEL 0    &bt BT_SEL 1  &bt BT_SEL 2  &bt BT_SEL 3  &bt BT_SEL 4    &trans      &trans  &trans  &trans  &trans  &trans
-&trans  &trans          &trans        &trans        &trans        &trans          &trans      &trans  &trans  &trans  &trans  &trans
-&trans  &bt BT_CLR_ALL  &trans        &trans        &trans        &trans          &trans      &trans  &trans  &trans  &trans  &trans
-&trans  &trans          &trans        &bt BT_CLR    &trans        &trans          &bt BT_NXT  &trans  &trans  &trans  &trans  &trans
-                                      &trans        &trans        &trans          &trans      &trans
-                                                    &trans        &trans          &trans
+&kp F1  &kp F2     &kp F3  &kp F4  &kp F5     &kp F6       &kp F7      &kp F8     &kp F9            &kp F10            &kp F11        &kp F12
+&trans  &kp GRAVE  &none   &none   &kp PSCRN  &trans       &kp INS     &kp HOME   &kp UP_ARROW      &kp END            &kp PG_UP      &trans
+&trans  &none      &none   &none   &none      &trans       &kp DELETE  &kp LEFT   &kp DOWN          &kp RIGHT          &kp PAGE_DOWN  &kp RGUI
+&trans  &trans     &trans  &trans  &mkp LCLK  &mkp RCLK    &kp MINUS   &kp EQUAL  &kp LEFT_BRACKET  &kp RIGHT_BRACKET  &none          &trans
+                           &trans  &trans     &trans       &trans      &trans
+                                   &trans     &trans       &trans
             >;
         };
 
@@ -81,6 +85,17 @@
 &trans  &trans  &trans  &trans  &trans  &trans    &trans  &trans  &trans  &trans  &trans  &trans
                         &trans  &trans  &trans    &trans  &trans
                                 &trans  &trans    &trans
+            >;
+        };
+
+        SYS_layer {
+            bindings = <
+&bt BT_CLR   &bt BT_SEL 0  &bt BT_SEL 1  &bt BT_SEL 2  &bt BT_SEL 3  &bt BT_SEL 4    &trans      &trans  &trans  &trans  &trans  &out OUT_TOG
+&trans       &trans        &trans        &trans        &trans        &trans          &trans      &trans  &trans  &trans  &trans  &trans
+&trans       &trans        &trans        &trans        &trans        &trans          &trans      &trans  &trans  &trans  &trans  &trans
+&bootloader  &trans        &trans        &trans        &trans        &trans          &bt BT_NXT  &trans  &trans  &trans  &trans  &bootloader
+                                         &trans        &trans        &trans          &trans      &trans
+                                                       &trans        &trans          &trans
             >;
         };
 
