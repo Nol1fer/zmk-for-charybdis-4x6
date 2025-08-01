@@ -57,12 +57,12 @@
 
         QWERTY {
             bindings = <
-&kp ESC         &kp N1         &kp N2            &kp N3            &kp N4          &kp N5          &kp N6      &kp N7          &kp N8        &kp N9        &kp N0            &kp BACKSPACE
-&kp TAB         &kp Q          &kp W             &kp E             &kp R           &kp T           &kp Y       &kp U           &kp I         &kp O         &kp P             &kp BSLH
-&kp BACKSPACE   &tpmt LCTRL A  &tpmt LEFT_ALT S  &tpmt LWIN D      &tpmt LSHIFT F  &kp G           &kp H       &tpmt RSHIFT J  &tpmt RGUI K  &tpmt RALT L  &tpmt RCTRL SEMI  &kp SQT
-&kp LEFT_SHIFT  &kp Z          &kp X             &kp C             &kp V           &lt 4 B         &kp N       &kp M           &kp COMMA     &kp DOT       &kp FSLH          &kp RIGHT_SHIFT
-                                                 &kp LEFT_CONTROL  &mo 1           &mo 2           &kp DELETE  &kp SPACE
-                                                                   &kp LEFT_WIN    &kp LEFT_ALT    &kp ENTER
+&kp ESC         &kp N1         &kp N2            &kp N3        &kp N4          &kp N5          &kp N6      &kp N7          &kp N8        &kp N9        &kp N0            &kp BACKSPACE
+&kp TAB         &kp Q          &kp W             &kp E         &kp R           &kp T           &kp Y       &kp U           &kp I         &kp O         &kp P             &kp BSLH
+&kp BACKSPACE   &tpmt LCTRL A  &tpmt LEFT_ALT S  &tpmt LWIN D  &tpmt LSHIFT F  &kp G           &kp H       &tpmt RSHIFT J  &tpmt RGUI K  &tpmt RALT L  &tpmt RCTRL SEMI  &kp SQT
+&kp LEFT_SHIFT  &kp Z          &kp X             &kp C         &kp V           &kp B           &kp N       &kp M           &kp COMMA     &kp DOT       &kp FSLH          &kp RIGHT_SHIFT
+                                                 &kp ENTER     &mo 1           &mo 2           &kp DELETE  &kp SPACE
+                                                               &kp LEFT_WIN    &kp LEFT_ALT    &mo 1
             >;
         };
 
