@@ -6,6 +6,13 @@
 
 #include "charybdis.dtsi"
 
+/{
+    chosen {
+        zmk,underglow = &led_strip;
+    };
+};
+
+
 &kscan0 {
 	col-gpios
 		= <&gpio0 2 GPIO_ACTIVE_HIGH>
