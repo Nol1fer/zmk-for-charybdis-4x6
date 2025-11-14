@@ -6,6 +6,9 @@ config ZMK_KEYBOARD_NAME
 config ZMK_SPLIT_BLE_ROLE_CENTRAL
 	default y
 
+config ZMK_SPLIT_ROLE_CENTRAL
+	default y
+
 if ZMK_DISPLAY
 
 config I2C
@@ -47,5 +50,8 @@ if SHIELD_CHARYBDIS_DONGLE || SHIELD_CHARYBDIS_LEFT || SHIELD_CHARYBDIS_RIGHT
 config ZMK_SPLIT
 	default y
 
+config ZMK_SPLIT_BLE
+	default y
+	
 endif
 
