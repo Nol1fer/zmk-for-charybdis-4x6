@@ -5,7 +5,7 @@
 *
 */
 
-#include "cyboard.dtsi"
+#include "charybdis.dtsi"
 
 /{
     chosen {
