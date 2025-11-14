@@ -5,7 +5,6 @@
  */
  
 #include <zephyr/dt-bindings/input/input-event-codes.h>
-#include <dt-bindings/zmk/layers.h>
 #include <input/processors.dtsi>
 #include "charybdis.dtsi"
 
@@ -116,9 +115,10 @@
     trackball_listener {
         compatible = "zmk,input-listener";
         device = <&trackball>;
-        scroll_mode_layer {
+        scroller {
             layers = <1>;
-            input-processors = <&zip_scroll_scaler 1 1>;
+            input-processors = <&zip_xy_to_scroll_mapper>;
+            process-next;
         };
     };
 };
