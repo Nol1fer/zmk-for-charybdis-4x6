@@ -60,9 +60,6 @@
         evt-type = <INPUT_EV_REL>;
         x-input-code = <INPUT_REL_X>;
         y-input-code = <INPUT_REL_Y>;
-        scroll-layers = <1>;
-        snipe-layers = <4>;
-      // automouse-layer = <3>;
     };
 };
 

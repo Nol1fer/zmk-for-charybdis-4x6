@@ -125,4 +125,11 @@
             then-layer = <3>;
         };
     };
+
+    &trackball_listener {
+        scroll_mode_layer {
+            layers = <1>;
+            input-processors = <&zip_scroll_scaler 1 1>
+        };
+    };
 };
