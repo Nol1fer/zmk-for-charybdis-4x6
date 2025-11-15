@@ -12,6 +12,10 @@
     };
 };
 
+&trackball_split {
+    status = "disabled";
+};
+
 
 &kscan0 {
 	col-gpios
