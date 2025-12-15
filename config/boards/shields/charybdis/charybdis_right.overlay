@@ -120,6 +120,7 @@
     chosen {
         zmk,underglow = &led_strip;
     };
+    input = <&trackball_split>;
 
 };
 
