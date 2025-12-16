@@ -63,10 +63,6 @@
     status = "disabled";
 };
 
-&trackball_split {
-    status = "okay";
-};
-
 &trackball_listener {
     status = "okay";
 };
