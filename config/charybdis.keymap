@@ -31,6 +31,19 @@
 #define NSPC LC(LG(RIGHT))
 #define PSPC LC(LG(LEFT))
 
+&sk {
+	quick-release; // Avoids "THis" problem (double capitalization)
+    release-after-ms = <60000>;
+};
+
+&mmv {
+    time-to-max-speed-ms = <1000>;
+};
+
+&msc {
+    time-to-max-speed-ms = <600>;
+};
+
 / {
     macros {
         To1_macro: To1_macro {
