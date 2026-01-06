@@ -1,6 +1,3 @@
-#define ZMK_POINTING_DEFAULT_MOVE_VAL 1500  // default: 600
-#define ZMK_POINTING_DEFAULT_SCRL_VAL 100    // default: 10
-
 #include <behaviors.dtsi>
 #include <dt-bindings/zmk/bt.h>
 #include <dt-bindings/zmk/keys.h>
@@ -155,12 +152,12 @@ _n _ BSL        _n           _ LS(LBKT)   _ LBKT      _ UNDER         _ EQUAL   
 
         nav_layer {
             bindings = <
-_n _n           _n           _n           _n          _n                      _n           _n           _n           _n           _n         _n
-_n _ CAPS       &mkp RCLK    &mkp MCLK    &mkp LCLK   &msc SCRL_UP            _ ESC        _ HOME       _ UP         _ END        _ PG_UP    _n           
-_n &sk LGUI     &sk LALT     &sk LCTRL    &sk LSHFT   &msc SCRL_DOWN          _ RET        _ LEFT       _ DOWN       _ RIGHT      _ PG_DN    _n
-_n _ LC(Z)       _ LC(X)     _ LC(C)      _ LC(V)     _ ESC                   _ TAB        _ BSPC       _ DEL        _ APOS       _ KP_NUM   _n        
-                             &mo CMD      _t          _t                      _t           _t
-                                           _n         _n                      _t
+_n _n           _n           _n           _n          _n                            _n           _n           _n           _n           _n         _n
+_n _ CAPS       &mkp RCLK    &mkp MCLK    &mkp LCLK   &msc SCRL_UP(MOVE_Y(5))       _ ESC        _ HOME       _ UP         _ END        _ PG_UP    _n           
+_n &sk LGUI     &sk LALT     &sk LCTRL    &sk LSHFT   &msc SCRL_DOWN(MOVE_Y(-5))    _ RET        _ LEFT       _ DOWN       _ RIGHT      _ PG_DN    _n
+_n _ LC(Z)       _ LC(X)     _ LC(C)      _ LC(V)     _ ESC                         _ TAB        _ BSPC       _ DEL        _ APOS       _ KP_NUM   _n        
+                             &mo CMD      _t          _t                            _t           _t
+                                           _n         _n                            _t
             >;
         };
 
